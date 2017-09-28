@@ -1,7 +1,6 @@
 FROM alpine:3.5
-MAINTAINER Arvind Rawat <arvindr226@gmail.com>
 
-RUN apk --update add --no-cache openssh bash \
+RUN apk --update add --no-cache openssh bash rsyslog \
   && sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
   && echo "root:password" | chpasswd \
   && rm -rf /var/cache/apk/*
